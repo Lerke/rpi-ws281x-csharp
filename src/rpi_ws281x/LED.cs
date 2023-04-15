@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Linq;
 
 namespace rpi_ws281x
 {
@@ -23,6 +24,14 @@ namespace rpi_ws281x
 		/// <summary>
 		/// Returns the RGB value of the color
 		/// </summary>
-		internal int RGBValue => Color.ToArgb();
+		internal int RGBValue
+		{
+			get
+			{
+				var minimalColourValue = (new[] { Color.R, Color.G, Color.B }).Aggregate(Color.R, (acc, curr) => curr < acc ? curr : acc);
+				var c = Color.FromArgb(minimalColourValue, Color.R, Color.G, Color.B);
+				return c.ToArgb();
+			}
+		}
 	}
 }
