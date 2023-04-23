@@ -11,7 +11,7 @@ namespace rpi_ws281x
 	/// </summary>
 	public class Settings
 	{
-		public static readonly uint DEFAULT_TARGET_FREQ = 800000;
+		public static readonly uint DEFAULT_TARGET_FREQ = 900000;
 		public static readonly int DEFAULT_DMA_CHANNEL = 10;
 
 		/// <summary>
